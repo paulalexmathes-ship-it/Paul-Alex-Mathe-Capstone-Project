@@ -207,3 +207,8 @@ Acceptance Criteria Checklist
 -Complete pipeline saved via joblib.dump (preprocessing + estimator together)
 -Saved pipeline reloadable and usable end-to-end on raw new data
 
+Part B — Model Explainability:
+- SHAP TreeExplainer for post-hoc Random Forest interpretability
+- 4 visualization types: bee swarm, global importance, waterfall, dependence
+- Feature importance ranking with written interpretation
+

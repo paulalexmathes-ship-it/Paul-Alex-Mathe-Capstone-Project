@@ -53,6 +53,60 @@ An analyst-to-data-scientist workflow using the Titanic dataset (891 rows × 15 
 
 **Tech Stack:** Python, pandas, NumPy, scikit-learn, seaborn, matplotlib, joblib
 
+### Part C — Model Explainability (SHAP Analysis)
+
+Post-hoc interpretability analysis using SHAP (SHapley Additive exPlanations)
+on the tuned Random Forest classifier.
+
+**Script:** `shap_analysis.py`
+
+**What it does:**
+1. Loads the saved `best_pipeline.joblib`
+2. Extracts the preprocessor and Random Forest classifier
+3. Transforms test data through the preprocessing pipeline
+4. Computes SHAP values using `TreeExplainer`
+5. Generates 4 interpretability visualizations
+
+**Generated Charts:**
+| Chart | Purpose |
+|-------|---------|
+| `shap_summary_beeswarm.png` | Feature impact distribution across all predictions |
+| `shap_feature_importance_bar.png` | Global feature importance (mean absolute SHAP) |
+| `shap_waterfall_single.png` | End-to-end explanation of a single prediction |
+| `shap_dependence_top_feature.png` | How the top predictor's values affect survival probability |
+
+**Key Finding:**  
+Top Features by Mean |SHAP Value|:
+
+Feature Mean |SHAP|
+
+sex_male 0.206718
+
+pclass 0.095238
+
+fare 0.067548
+
+age 0.052631
+
+embarked_S 0.021618
+
+sibsp 0.017793
+
+parch 0.014443
+
+embarked_Q 0.001797
+
+FINDING:
+
+1. 'sex_male' is the STRONGEST predictor of survival.
+
+2. 'pclass' is the 2nd most influential feature.
+
+3. 'fare' is the 3rd most influential feature.
+
+4 SHAP charts saved to: C:\capstone_temp\Paul-Alex-Mathe-Capstone-Project\analytics\charts/
+
+**Tech Stack:** SHAP, matplotlib, scikit-learn, joblib
 ---
 
 ### Module 3 — Support Assistant (25 marks)
